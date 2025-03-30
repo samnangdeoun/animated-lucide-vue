@@ -8,10 +8,11 @@
             <motion.path
                 d="M11 13c1.93 1.93 2.83 4.17 2 5-.83.83-3.07-.07-5-2-1.93-1.93-2.83-4.17-2-5 .83-.83 3.07.07 5 2Z"
                 :variants="popperVariants" :animate="currentState" />
-            <motion.path d="M4 3h.01" :variants="dotsVariants" :animate="currentState" />
-            <motion.path d="M22 8h.01" :variants="dotsVariants" :animate="currentState" />
-            <motion.path d="M15 2h.01" :variants="dotsVariants" :animate="currentState" />
-            <motion.path d="M22 20h.01" :variants="dotsVariants" :animate="currentState" />
+            <motion.circle cx="4" cy="3" r="0.5" :variants="dotsVariants" :animate="currentState" />
+            <motion.circle cx="22" cy="8" r="0.5" :variants="dotsVariants" :animate="currentState" />
+            <motion.circle cx="15" cy="2" r="0.5" :variants="dotsVariants" :animate="currentState" />
+            <motion.circle cx="22" cy="20" r="0.5" :variants="dotsVariants" :animate="currentState" />
+
             <motion.path
                 d="m14 10 1.21-1.06c0.16-0.84 0.9-1.44 1.76-1.44h0.38c0.88 0 1.55-0.77 1.45-1.63a2.9 2.9 0 0 1 1.96-3.12L22 2"
                 :variants="linesVariants" :animate="currentState" />
@@ -67,16 +68,14 @@ const linesVariants = {
 const dotsVariants = {
     normal: { opacity: 1, scale: 1, translateX: 0, translateY: 0 },
     animate: {
-        scale: [1, 1, 1, 1, 1],
-        opacity: [0, 1],
-        translateX: [-5, 0],
-        translateY: [5, 0],
-        scale: [0.5, 0.8, 1, 1.1, 1],
+        translateX: [-1.5, 0],
+        translateY: [1.5, 0],
         transition: {
             type: "spring",
             damping: 35,
-            duration: 0.7,
-            stiffness: 240,
+            stiffness: 200,
+            velocity: 0.3,
+            mass: 4,
         },
     },
 };
