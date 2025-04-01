@@ -773,6 +773,15 @@
           />
         </template>
       </AnimatedIconButton>
+      <AnimatedIconButton>
+        <template #default="{ ref, controlled }">
+          <LucideGithub
+            :ref="ref"
+            :controlled="controlled"
+            :class="primaryColor"
+          />
+        </template>
+      </AnimatedIconButton>
     </div>
   </UContainer>
 </template>
